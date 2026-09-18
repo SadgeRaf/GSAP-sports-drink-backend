@@ -37,4 +37,9 @@ app.get("/", async (req, res) => {
     res.status(404);
 })
 
-app.listen(3000, console.log("Server running"));
+// Only start the server when this file is run directly, not when imported by tests
+if (require.main === module) {
+    app.listen(3000, () => console.log("Server running"));
+}
+
+module.exports = { app, pool };
