@@ -5,7 +5,7 @@ const app = express();
 const { Pool } = require('pg');
 
 app.use(cors({
-  origin: 'http://localhost:5173', // or whatever port your React app runs on
+  origin: 'http://localhost:5173', // or whatever port app runs on
   credentials: true
 }));
 app.use(express.json());
@@ -22,6 +22,8 @@ const pool = new Pool({
         require: true,
     },
 });
+
+//this comment is on a test/new branch
 
 app.get("/", async (req, res) => {
 
